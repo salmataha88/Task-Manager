@@ -1,0 +1,545 @@
+{
+	"info": {
+		"_postman_id": "1ccd9f66-446f-4434-a100-d55cb6caca49",
+		"name": "Task Manager",
+		"description": "Nodejs Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25061318"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Salma Ahmed\",\n  \"email\": \"salmaahmed1242@gmail.com\",\n  \"mobile\": \"12345678919\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						},
+						"description": "User can SignUp\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"salmaahmed1242@gmail.com\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						},
+						"description": "User can login and token is generated\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hYWhtZWQxMjQyQGdtYWlsLmNvbSIsImlkIjoiNjcyYzhhOTRiZjZkY2Q5NTZmZTM0YTJlIiwiaWF0IjoxNzMwOTcyNTUxLCJleHAiOjE3MzA5Nzk3NTF9.PfRvFpNp4zIv-yK3KZZRveN98gG8NksGlNfRL0PeiNs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Salma Ahmed\",\r\n    \"password\": \"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"profile"
+							]
+						},
+						"description": "User can Update his profile\n\nA successful PUT request typically returns a `200 OK` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								""
+							]
+						},
+						"description": "User can delete his profile\n\nA successful DELETE request typically returns a `200 OK` response code."
+					},
+					"response": []
+				}
+			],
+			"description": "User Authentication"
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\" : \"Task 2\",\n    \"description\": \"node project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/task/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								""
+							]
+						},
+						"description": "User can add its own task"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hYWhtZWQxMjQyQGdtYWlsLmNvbSIsImlkIjoiNjcyYzkxOTk1NWJiZTQ1N2E2NmM1ZDNhIiwiaWF0IjoxNzMwOTc0MTE0LCJleHAiOjE3MzA5ODEzMTR9.Urnv01zrKxMNRe-10f9gfJt7db78qksqiKgku_2fw_E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\" : \"Task 1\",\n    \"status\" : \"completed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/task/update/672c9a7235cc97ce9a11f1cc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								"update",
+								"672c9a7235cc97ce9a11f1cc"
+							]
+						},
+						"description": "User can update its own task {title , description , status}"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/task/mark/672ca5148bde9ea26e7eb56c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								"mark",
+								"672ca5148bde9ea26e7eb56c"
+							]
+						},
+						"description": "User can mark its own task \\[Toggle task status (completed/incomplete).]\\"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/task/672ca5148bde9ea26e7eb56c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								"672ca5148bde9ea26e7eb56c"
+							]
+						},
+						"description": "User can delete its own task by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/task/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								""
+							]
+						},
+						"description": "User can get its own tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/task/672ca5148bde9ea26e7eb56c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								"672ca5148bde9ea26e7eb56c"
+							]
+						},
+						"description": "User can get its own tasks by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Task eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWF5YUBnbWFpbC5jb20iLCJpZCI6IjY3MmM5MzFiNTViYmU0NTdhNjZjNWQ0MSIsImlhdCI6MTczMDk3NDUxNywiZXhwIjoxNzMwOTgxNzE3fQ.n1vnPceZea4Brazz3ehVeO0KriTXRPrvXIixMxanpNA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/task/status/completed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"task",
+								"status",
+								"completed"
+							]
+						},
+						"description": "User can get its own task by status"
+					},
+					"response": []
+				}
+			],
+			"description": "Manage Tasks"
+		}
+	]
+}
