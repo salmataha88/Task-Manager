@@ -53,11 +53,13 @@ A simple task management REST API built using the MERN stack (MongoDB, Express.j
     MONGO_URI=your_mongo_connection_string
     SIGN_IN_TOKEN_SECRET=your_jwt_secret
     SALT_ROUNDS=8
+```
 
 4. **Run the Application:**
    ```bash
    npm start
    The API will be accessible at http://localhost:PORT.
+   ```
 
 5. **API Documentation:**
    - Import Json file (Task Manager.postman_collection.json) into Postman to interact with the API endpoints.
