@@ -79,7 +79,11 @@ export const getTasks = async (req, res) => {
     const {authUser} = req;
     
     const tasks = await Task.find({user: authUser._id}).select('-user');
-
+    if(!tasks){
+        return res.status(404).json({
+            message: 'Tasks not found',
+        });
+    }
     return res.status(200).json({
         message: 'Tasks',
         tasks,

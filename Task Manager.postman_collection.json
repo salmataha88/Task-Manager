@@ -96,7 +96,7 @@
 								"login"
 							]
 						},
-						"description": "User can login and token is generated\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+						"description": "User can login and token is generated\n\nResponses:  \nSuccess: `201 Created.`\n\nFail: `400 invalid input , 500 Server error`"
 					},
 					"response": []
 				},
@@ -157,7 +157,7 @@
 								"profile"
 							]
 						},
-						"description": "User can Update his profile\n\nA successful PUT request typically returns a `200 OK` response code."
+						"description": "User can Update his profile\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `400 invalid input , 500 Server error`"
 					},
 					"response": []
 				},
@@ -198,7 +198,7 @@
 								""
 							]
 						},
-						"description": "User can delete his profile\n\nA successful DELETE request typically returns a `200 OK` response code."
+						"description": "User can delete his profile\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `500 Server error`"
 					},
 					"response": []
 				}
@@ -255,7 +255,7 @@
 								""
 							]
 						},
-						"description": "User can add its own task"
+						"description": "User can add its own task.\n\nResponses:  \nSuccess: `201 Created.`\n\nFail: `400 invalid input , 500 Server error`"
 					},
 					"response": []
 				},
@@ -307,7 +307,7 @@
 								"672c9a7235cc97ce9a11f1cc"
 							]
 						},
-						"description": "User can update its own task {title , description , status}"
+						"description": "User can update its own task {title , description , status}.\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `400 invalid input , 404 Task not found , 500 Server error`"
 					},
 					"response": []
 				},
@@ -359,7 +359,7 @@
 								"672ca5148bde9ea26e7eb56c"
 							]
 						},
-						"description": "User can mark its own task \\[Toggle task status (completed/incomplete).]\\"
+						"description": "User can mark its own task \\[Toggle task status (completed/incomplete)\\].\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `400 invalid input , 404 Task not found , 401 unauthorized , 500 Server error`"
 					},
 					"response": []
 				},
@@ -410,7 +410,7 @@
 								"672ca5148bde9ea26e7eb56c"
 							]
 						},
-						"description": "User can delete its own task by id"
+						"description": "User can delete its own task by id\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `400 invalid input - 404 Task not found , 500 Server error`"
 					},
 					"response": []
 				},
@@ -451,7 +451,7 @@
 								""
 							]
 						},
-						"description": "User can get its own tasks"
+						"description": "User can get its own tasks\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `404 Tasks not found , 500 Server error`"
 					},
 					"response": []
 				},
@@ -492,7 +492,7 @@
 								"672ca5148bde9ea26e7eb56c"
 							]
 						},
-						"description": "User can get its own tasks by ID"
+						"description": "User can get its own tasks by ID\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `404 Task not found , 401 unauthorized , 500 Server error`"
 					},
 					"response": []
 				},
@@ -534,7 +534,7 @@
 								"completed"
 							]
 						},
-						"description": "User can get its own task by status"
+						"description": "User can get its own task by status\n\nResponses:  \nSuccess: `200 OK.`\n\nFail: `404 Task not found , 500 Server error`"
 					},
 					"response": []
 				}
